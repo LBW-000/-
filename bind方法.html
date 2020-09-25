@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Person(age) {
+            this.age = age;
+        }
+        Person.prototype.play = function () {
+            console.log(this + "====>" + this.age)
+        }
+        function Student(age) {
+            this.age = age;
+        }
+        var per=new Person(10);
+        var stu=new Student(20);
+        //复制了一份！
+       var ff= per.play.bind(stu);
+       ff();
+    //   bind的使用方法
+     /*
+     函数名字.bind(对象,参数1,参数2,....)----->返回值是这个复制后的函数
+     方法的名字.bind(对象,参数1,参数2,...)-----.返回值是这个复制后的方法
+     
+     
+     
+     
+     
+     
+     */
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function ShowRandom(){
+           
+        }
+        ShowRandom.prototype.show1=function(){
+            //改变了定时器中的this指向,本来应该是指向window的,现在是实例对象
+            window.setInterval(this.show2.bind(this),1000)
+        }
+        ShowRandom.prototype.show2=function(){
+            this.number=parseInt(Math.random()*10+1);
+            console.log(this.number)
+        }
+        var sr=new ShowRandom();
+        sr.show1();
+    </script>
+</body>
+</html>
